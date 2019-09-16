@@ -1,5 +1,5 @@
 import { AppActionTypes } from "./app.constatns";
-import { getUserInformation } from "../service/getData";
+import { getUserInformation, getCheckpoints } from "../service/getData";
 
 export const actionGetListOfEquipments = () => ({
    type: AppActionTypes.GET_LIST
@@ -15,6 +15,17 @@ export const actionGotUserInformationError = (userInformationError) => ({
    userInformationError
 });
 
+export const actionCheckpoints = (id) => ({
+   type: AppActionTypes.GET_CHECKPOINTS,
+   id
+});
+
+export const actionGotCheckpointsInformation = (information) => ({
+   type: AppActionTypes.GOT_CHECKPOINTS_DETAILS,
+   information
+});
+
+
 
 
 export const asyncActionGetList = () => (dispatch => {
@@ -22,6 +33,17 @@ export const asyncActionGetList = () => (dispatch => {
    getUserInformation().then((information) => {
       console.log('Information: ', information);
       dispatch(actionGotUserInformation(information))
+   }).catch(error => {
+      console.log('ERROR: ', error);
+      dispatch(actionGotUserInformationError(error));
+   })
+});
+
+export const asyncActionGetCheckpointDetails = (id) => (dispatch => {
+   dispatch(actionCheckpoints());
+   getCheckpoints(id).then((information) => {
+      console.log('22222: ', information);
+      dispatch(actionGotCheckpointsInformation(information))
    }).catch(error => {
       console.log('ERROR: ', error);
       dispatch(actionGotUserInformationError(error));

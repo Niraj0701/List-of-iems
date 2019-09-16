@@ -10,7 +10,14 @@ import {
       return new Promise((resolve, reject)=> {
          database.ref('Equipments').on('value',
             data => {
-               let tempArray = Object.keys(data.val()).map(function(k) { return data.val()[k] });
+               let tempArray = Object.keys(data.val()).map((k) => {
+                  console.log('ID : ', k)
+                  let tempItem = {
+                     index: k,
+                     item: data.val()[k]
+                  }
+                  return tempItem;
+               });
                return resolve(tempArray);
             },
             error => reject(error)
@@ -18,11 +25,23 @@ import {
       });
    }
 
-   export const getUserInformation1 = () => { 
+   export const getCheckpoints = (id) => {
+      return new Promise ((resolve, reject)=>{
+         let ref = database.ref('Checkpoints');
+         ref.orderByChild("equipmentKey").equalTo(id).once('value',
+           data => resolve(Object.keys(data.val()).map((k) => data.val()[k])),
+           error => reject(error));
+      });
+   }
+
+   export const getUserInformation2 = () => {
       return new Promise ((resolve, reject)=>{
          let ref = database.ref('Checkpoint').child("-LHXpVfII4J53rgKtuAi")
-         ref.on('value', 
-         data => resolve(data.val()), 
-         error => reject(error));
+         ref.on('value',
+           data => {
+            console.log('&&&&&& : ', data.val());
+            return resolve(data.val())
+           },
+           error => reject(error));
       });
    }
