@@ -1,11 +1,16 @@
 import { connect } from 'react-redux';
-import ListPage from '../../components/list';
+import ListPage from './list';
+import { asyncActionGetList } from '../../store/app.action';
 
-const  mapStateToProps = () => ({name: 'niraj'});
+const  mapStateToProps = (state) => {
+	console.log('Updated %%% : ', state.appReducer)
+	return {name: state.appReducer.name, listOfEquipments: state.appReducer.listOfEquipments}
+};
 
 const mapDispatchToProps = (dispatch) => ({
    getListOfEquipments: () => {
-      console.log('mapDispatchToProps hit');
+		console.log('mapDispatchToProps hit');
+		dispatch(asyncActionGetList())
    }
 });
 

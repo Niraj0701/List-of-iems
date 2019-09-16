@@ -2,14 +2,20 @@ import { AppActionTypes } from "./app.constatns";
 import {combineReducers} from 'redux';
 
 const initialState = {
-   name: ''
+   name: '',
+   listOfEquipments: {}
 }
 
-export const appReducer = (state= initialState, action) =>{
+export const appReducer = (state= {}, action) =>{
    switch (action.type){
-      case AppActionTypes.GET_ITEM:
+      case AppActionTypes.GET_LIST: {
          console.log('Got hit in the reducer ', action);
          return {};
+      };
+      case  AppActionTypes.GOT_USER_INFORMATION: {
+          console.log('Got hit in the reducer ---- ', action);
+          return {...state,listOfEquipments: action.listOfEquipments}
+      };
       default:
          return state;
    }

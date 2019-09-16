@@ -28,4 +28,4 @@ export {
     functions,
     database,
     storage,
-};
+}; 
