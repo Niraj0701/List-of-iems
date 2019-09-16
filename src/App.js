@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 // import {database} from './firebase';
 import ListPage from './containers/list/list.container';
+import Details from './containers/details/details.container';
 import HomePage from './components/home';
 
 class App extends Component {
@@ -21,6 +22,7 @@ class App extends Component {
         <Switch>
             <Route exact path='/' component={HomePage} />
             <Route path='/list' component={ListPage} />
+            <Route path='/item-details/:id' strict component={Details} />
           </Switch>
       </div>
         <h1>footer</h1>

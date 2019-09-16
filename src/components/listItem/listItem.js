@@ -11,8 +11,8 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import './styles.scss';
-
-/* 
+import {Link} from "react-router-dom";
+/*
 const ListItem = (props) => (
    <div className='mainList'>
      <span>{props.brand}</span>
@@ -70,6 +70,7 @@ display: 'grid'
 
 const ListItem = (props) => {
 	const classes = useStyles();
+	console.log(props)
 	return (
 		<div className={classes.root}>
 			<Card className={classes.card}>
@@ -92,9 +93,10 @@ const ListItem = (props) => {
 					</CardContent>
 				</CardActionArea>
 				<CardActions>
-					<Button size="small" color="primary" onClick={()=>props.buttonClicked(props.index)}>
+					{/*<Button size="small" color="primary" onClick={()=>props.buttonClicked(props.index)}>
 						En savoir plus
-					</Button>
+					</Button>*/}
+					<Link to={"/item-details"+props.index}> En savoir plus </Link>
 				</CardActions>
 			</Card>
 		</div>

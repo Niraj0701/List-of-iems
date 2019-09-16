@@ -1,6 +1,6 @@
 import {AppActionTypes} from "../app.constatns";
-import {combineReducers} from 'redux/index';
 import {GetDetailsReducer} from "./getDetailsReducer";
+import {combineReducers} from "redux";
 
 const initialState = {
 	name: '',

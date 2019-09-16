@@ -1,5 +1,13 @@
-import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { rootReducer } from './reducer/getListReducer';
+import { createStore, applyMiddleware, compose } from 'redux';
+import { createHashHistory } from 'history';
+import { routerMiddleware } from 'react-router-redux';
 
-export const appStore = createStore(rootReducer, applyMiddleware(thunk));
+const reduxRouterMiddleware = routerMiddleware(createHashHistory());
+const middleware = [thunk, reduxRouterMiddleware];
+
+export const appStore = createStore(
+    rootReducer,
+    compose(applyMiddleware(...middleware))
+);

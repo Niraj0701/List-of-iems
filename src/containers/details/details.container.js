@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
-import ListPage from './list';
 import { asyncActionGetCheckpointDetails } from '../../store/app.action';
+import DetailsPage from "./details";
 
 const  mapStateToProps = (state) => {
-	return {name: state.appReducer.name, listOfEquipments: state.getDetailsReducer.listOfEquipments}
+
 };
 
 const mapDispatchToProps = (dispatch) => ({
@@ -13,4 +13,4 @@ const mapDispatchToProps = (dispatch) => ({
 	}
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ListPage);
+export default connect(mapStateToProps, mapDispatchToProps)(DetailsPage);
