@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ListPage from './list';
-import { asyncActionGetList, asyncActionGetCheckpointDetails } from '../../store/app.action';
+import { asyncActionGetList } from '../../store/app.action';
 
 const  mapStateToProps = (state) => {
 	console.log('Updated %%% : ', state.getListReducer)

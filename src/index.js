@@ -4,11 +4,15 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux'
-import { appStore } from './store';
+import { appStore, history } from './store';
+import { ConnectedRouter } from 'connected-react-router'
 
 ReactDOM.render(
    <Provider store={appStore}>
-      <App />
+     <ConnectedRouter history={history}>
+       <App />
+     </ConnectedRouter>
+
    </Provider>, 
 document.getElementById('root'));
 

@@ -11,7 +11,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import './styles.scss';
-import {Link} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 /*
 const ListItem = (props) => (
    <div className='mainList'>
@@ -96,43 +96,11 @@ const ListItem = (props) => {
 					{/*<Button size="small" color="primary" onClick={()=>props.buttonClicked(props.index)}>
 						En savoir plus
 					</Button>*/}
-					<Link to={"/item-details"+props.index}> En savoir plus </Link>
+					<Link to={"/item-details/"+props.index}> En savoir plus </Link>
+					{/*<Redirect to={{pathname: "/item-details/"+props.index, state: {item: props.item}}}> En savoir plus </Redirect>*/}
 				</CardActions>
 			</Card>
 		</div>
 	)
 };
 export default ListItem;
-
-/*<Paper className={classes.paper}>
-				<Grid container spacing={2}>
-					<Grid item>
-						<ButtonBase className={classes.image}>
-							<img className={classes.img} alt="complex" src={props.photo}/>
-						</ButtonBase>
-					</Grid>
-					<Grid item xs={12} sm container>
-						<Grid item xs container direction="column" spacing={2}>
-							<Grid item xs>
-								<Typography gutterBottom variant="subtitle1">
-									{props.brand}
-								</Typography>
-								<Typography variant="body2" gutterBottom>
-									{props.name}
-								</Typography>
-								{props.serialNumber ? (<Typography variant="body2" color="textSecondary">
-									Serial Number: {props.serialNumber}
-								</Typography>) : ''}
-							</Grid>
-							<Grid item>
-								<Typography variant="body2" style={{cursor: 'pointer', color: 'blue'}}>
-									En savoir plus
-								</Typography>
-							</Grid>
-						</Grid>
-						<Grid item>
-							<Typography variant="subtitle1">{props.status}</Typography>
-						</Grid>
-					</Grid>
-				</Grid>
-			</Paper>*/

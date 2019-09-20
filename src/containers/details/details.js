@@ -12,9 +12,10 @@ let style = {
 export default class DetailsPage extends React.Component {
     constructor(props) {
         super(props);
-        console.log('Component init - ListPage: ');
+        console.log('Component init - ListPage: ', this.props.match.params.id, this.props.location);
         this.state = {
-            id: this.props.location.state
+            id: this.props.match.params.id,
+            data: this.props.checkpointsDetails
         }
     }
 
@@ -24,7 +25,7 @@ export default class DetailsPage extends React.Component {
     }
 
     componentDidMount() {
-        this.props.getCheckpoint(this.state.id);
+        this.props.getCheckpoint(this.props.match.params.id);
     }
 
     render() {

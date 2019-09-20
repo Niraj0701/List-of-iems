@@ -3,7 +3,7 @@ import { asyncActionGetCheckpointDetails } from '../../store/app.action';
 import DetailsPage from "./details";
 
 const  mapStateToProps = (state) => {
-
+	return {checkpointsDetails: state.getDetailsReducer.checkpointsDetails}
 };
 
 const mapDispatchToProps = (dispatch) => ({
