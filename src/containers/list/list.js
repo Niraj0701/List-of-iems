@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ListItem from '../../components/listItem/listItem';
+import ListItem from '../../components/listItem';
 import SearchBar from '../../components/searchBar/searchBar';
 
 let style = {
@@ -25,7 +25,6 @@ export default class ListPage extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log('NextProps ', nextProps);
         this.setState({listOfEquipments: nextProps.listOfEquipments});
     }
 
@@ -55,8 +54,6 @@ export default class ListPage extends React.Component {
     _renderObject(itemsList) {
         if (itemsList) {
             return itemsList.map((item, index) => {
-                    console.log(item);
-                    console.log(item);
                     return <ListItem buttonClicked={this.clickTest} key={index} {...item} />
                 }
             )
@@ -64,7 +61,6 @@ export default class ListPage extends React.Component {
     }
 
     clickTest(test) {
-        console.log('Button CLicked... : ', test, this.props.history);
         this.props.history.push('/item-details', test)
 
     }

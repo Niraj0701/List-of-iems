@@ -2,10 +2,6 @@ import {AppActionTypes} from "../app.constatns";
 import {GetDetailsReducer} from "./getDetailsReducer";
 import {combineReducers} from "redux";
 import { connectRouter } from 'connected-react-router';
-const initialState = {
-	name: '',
-	listOfEquipments: {}
-};
 
 export const GetListReducer = (state = {}, action) => {
 	switch (action.type) {

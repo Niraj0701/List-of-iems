@@ -40,7 +40,7 @@ export const asyncActionGetList = () => (dispatch => {
 });
 
 export const asyncActionGetCheckpointDetails = (id) => (dispatch => {
-   dispatch(actionCheckpoints());
+   console.log('***** : ', id)
    getCheckpoints(id).then((information) => {
       console.log('22222: ', information);
       dispatch(actionGotCheckpointsInformation(information))

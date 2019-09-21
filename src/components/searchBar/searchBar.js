@@ -6,7 +6,6 @@ class SearchBar extends React.Component {
       this.state = {
          filter: ''
       }
-      
    }
 
    test = (event) => {

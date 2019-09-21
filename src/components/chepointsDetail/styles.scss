@@ -1,0 +1,32 @@
+.checkpointDetails{
+  padding: 20px;
+  overflow: hidden;
+  overflow-y: scroll;
+  height: 75vh;
+  .equipementImage{
+    margin: auto;
+    height: 30%;
+    width: 30%;
+  }
+  .dataRow{
+    display: flex;
+    margin: 10px 5px;
+    flex-direction: row;
+    align-items: end;
+    .dataKey{
+      flex: 0.5;
+      text-align: left;
+      margin: auto 5px;
+      font-size: 15px;
+      font-weight: 900;
+      color: #F1C232;
+    }
+    .dataValue{
+      flex: 0.9;
+      text-align: left;
+    }
+  }
+  .checkpointList{
+
+  }
+}

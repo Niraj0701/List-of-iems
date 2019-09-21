@@ -9,7 +9,6 @@ const  mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
 	getListOfEquipments: () => {
-		console.log('mapDispatchToProps hit');
 		dispatch(asyncActionGetList())
 	}
 });
