@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ListItem from '../../components/listItem';
 import SearchBar from '../../components/searchBar/searchBar';
+import TextField from "@material-ui/core/TextField";
 
 let style = {
     listOfItems: {
@@ -9,13 +10,14 @@ let style = {
         flexWrap: 'wrap',
         overflow: 'scroll',
         height: '70vh'
+    },
+    searchBar: {
+        margin: '2vh'
     }
 };
 export default class ListPage extends React.Component {
     constructor(props) {
         super(props);
-        console.log('Component init - ListPage: ');
-        this.clickHere = this.clickHere.bind(this);
         this.clickTest = this.clickTest.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.state = {
@@ -30,10 +32,6 @@ export default class ListPage extends React.Component {
 
     componentDidMount() {
         this.props.getListOfEquipments();
-    }
-
-    clickHere() {
-
     }
 
     handleChange(event) {
@@ -68,9 +66,16 @@ export default class ListPage extends React.Component {
     render() {
         return (
             <section>
-                <h1>From List Component: - {this.state.name}</h1>
-                <SearchBar filterQuery={this.handleChange}/>
-                <button onClick={this.clickHere}> {this.state.name} </button>
+                <div style={style.searchBar}>
+                    <TextField
+                        style={{width: '50%'}}
+                        label="Recherche Equipment"
+                        type="search"
+                        variant="outlined"
+                        onChange={this.handleChange}
+                    />
+                </div>
+
                 <div style={style.listOfItems}>
                     {this._renderObject(this.state.listOfEquipments)}
                 </div>

@@ -1,5 +1,5 @@
-import { AppActionTypes } from "./app.constatns";
-import { getUserInformation, getCheckpoints } from "../service/getData";
+import {AppActionTypes} from "./app.constatns";
+import {getUserInformation, getCheckpoints} from "../service/getData";
 
 export const actionGetListOfEquipments = () => ({
    type: AppActionTypes.GET_LIST
@@ -7,7 +7,7 @@ export const actionGetListOfEquipments = () => ({
 
 export const actionGotUserInformation = (listOfEquipments) => ({
    type: AppActionTypes.GOT_USER_INFORMATION,
-   listOfEquipments  
+   listOfEquipments
 });
 
 export const actionGotUserInformationError = (userInformationError) => ({
@@ -26,26 +26,32 @@ export const actionGotCheckpointsInformation = (information) => ({
 });
 
 
+const sorfByAlphabet = (listToBeSorted) => {
+   return listToBeSorted.sort(function (a, b) {
+      var nameA = a.item.name.toLowerCase(), nameB = b.item.name.toLowerCase();
+      if (nameA < nameB)
+         return -1;
+      if (nameA > nameB)
+         return 1;
+      return 0
+   });
+};
 
 
 export const asyncActionGetList = () => (dispatch => {
    dispatch(actionGetListOfEquipments());
    getUserInformation().then((information) => {
-      console.log('Information: ', information);
+      information = sorfByAlphabet(information);
       dispatch(actionGotUserInformation(information))
    }).catch(error => {
-      console.log('ERROR: ', error);
       dispatch(actionGotUserInformationError(error));
    })
 });
 
 export const asyncActionGetCheckpointDetails = (id) => (dispatch => {
-   console.log('***** : ', id)
    getCheckpoints(id).then((information) => {
-      console.log('22222: ', information);
       dispatch(actionGotCheckpointsInformation(information))
    }).catch(error => {
-      console.log('ERROR: ', error);
       dispatch(actionGotUserInformationError(error));
    })
 });

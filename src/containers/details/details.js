@@ -13,7 +13,6 @@ let style = {
 export default class DetailsPage extends React.Component {
     constructor(props) {
         super(props);
-        console.log('Component init - ListPage: ', this.props.checkpointsDetails);
         this.state = {
             id: this.props.match.params.id,
             data: this.props.checkpointsDetails,
@@ -23,13 +22,11 @@ export default class DetailsPage extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log('NextProps ', nextProps);
         this.setState({listOfEquipments: nextProps.listOfEquipments});
     }
 
     componentDidMount() {
         this.props.getCheckpoint(this.props.match.params.id);
-        console.log('## DATA ## : ', this.state.equipement)
     }
 
     render() {

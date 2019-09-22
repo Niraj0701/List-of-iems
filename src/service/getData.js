@@ -35,7 +35,6 @@ export const getEquipementByIndex = (id) => {
     return new Promise((resolve, reject) => {
         let ref = database.ref('Checkpoint').child(id);
         ref.on('value', data => {
-                console.log('&&&&&& : ', data.val());
                 return resolve(data.val());
             },
             error => reject(error),

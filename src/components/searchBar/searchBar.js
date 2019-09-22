@@ -1,4 +1,5 @@
 import React from 'react';
+import TextField from "../../containers/list/list";
 
 class SearchBar extends React.Component {
    constructor(props) {
@@ -6,6 +7,7 @@ class SearchBar extends React.Component {
       this.state = {
          filter: ''
       }
+      this.test = this.test.bind(this);
    }
 
    test = (event) => {
@@ -18,7 +20,14 @@ class SearchBar extends React.Component {
      return (
        <div>
           <h1>{filter}</h1>
-         <input value={filter} onChange={this.test.bind(this)} />
+           <TextField
+               id="outlined-search"
+               label="Search field"
+               type="search"
+               margin="normal"
+               variant="outlined"
+           />
+         {/*<input value={filter} onChange={this.test.bind(this)} />*/}
        </div>
      );
    }

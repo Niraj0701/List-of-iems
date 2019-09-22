@@ -3,7 +3,6 @@ import ListPage from './list';
 import { asyncActionGetList } from '../../store/app.action';
 
 const  mapStateToProps = (state) => {
-	console.log('Updated %%% : ', state.getListReducer)
 	return {name: state.getListReducer.name, listOfEquipments: state.getListReducer.listOfEquipments}
 };
 

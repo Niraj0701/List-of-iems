@@ -46,7 +46,7 @@ const ListItem = props => {
 					<CardMedia component='img' alt='Contemplative Reptile' height='140' image={props.item.photo} title='Contemplative Reptile' />
 					<CardContent>
 						<Typography gutterBottom variant='h5' component='h2'>
-							Le nom de l'équipement: {props.item.brand}
+							{props.item.name}
 						</Typography>
 						<Typography variant='body2' color='textSecondary' component='p'>
 							<span> Le domaine de l'équipement: {props.item.domain}</span>
