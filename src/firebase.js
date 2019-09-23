@@ -6,10 +6,10 @@ import 'firebase/storage';
 
 const config = {
     apiKey: "AIzaSyAIId2ByN9c0RX9_R71EbJJoV-lB1RDADc",
-    authDomain: "test-technique-beeldi.firebaseapp.com",
+    authDomain: "setFilterQuery-technique-beeldi.firebaseapp.com",
     databaseURL: "https://test-technique-beeldi.firebaseio.com",
-    projectId: "test-technique-beeldi",
-    storageBucket: "test-technique-beeldi.appspot.com",
+    projectId: "setFilterQuery-technique-beeldi",
+    storageBucket: "setFilterQuery-technique-beeldi.appspot.com",
     messagingSenderId: "937748581892"
 };
 

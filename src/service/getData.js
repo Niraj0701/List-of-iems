@@ -1,4 +1,4 @@
-import {firebase, auth, functions, database, storage} from '../firebase';
+import { database } from '../firebase';
 
 export const getUserInformation = () => {
     return new Promise((resolve, reject) => {
@@ -28,16 +28,5 @@ export const getCheckpoints = id => {
                 data => resolve(
                     Object.keys(data.val()).map(k => data.val()[k])),
                 error => reject(error));
-    });
-};
-
-export const getEquipementByIndex = (id) => {
-    return new Promise((resolve, reject) => {
-        let ref = database.ref('Checkpoint').child(id);
-        ref.on('value', data => {
-                return resolve(data.val());
-            },
-            error => reject(error),
-        );
     });
 };

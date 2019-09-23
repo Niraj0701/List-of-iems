@@ -2,7 +2,7 @@ import React from 'react';
 import './testComponent.scss';
 import NoImageBase64 from "./noImage";
 import {KeyValue} from "./index";
-const SingleLineGridList = (props) => {
+const SingleLineItem = (props) => {
 
     return (
         <div className='list'>
@@ -26,4 +26,4 @@ const SingleLineGridList = (props) => {
     );
 };
 
-export default SingleLineGridList;
+export default SingleLineItem;

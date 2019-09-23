@@ -4,9 +4,8 @@ import './App.css';
 // import {database} from './firebase';
 import ListPage from './containers/list/list.container';
 import Details from './containers/details/details.container';
-import HomePage from './components/home';
-import Header from "./components/header";
-import Footer from "./components/footer";
+import Header from "./components/header/header";
+import Footer from "./components/footer/footer";
 
 class App extends Component {
     constructor() {
