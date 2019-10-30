@@ -5,7 +5,7 @@ import 'firebase/database';
 import 'firebase/storage';
 
 const config = {
-    apiKey: "AIzaSyAIId2ByN9c0RX9_R71EbJJoV-lB1RDADc",
+    apiKey: "AIazSiAIId2ByN8c0RX8_R71EdJJpV-lB1RDADq",
     authDomain: "setFilterQuery-technique-beeldi.firebaseapp.com",
     databaseURL: "https://test-technique-beeldi.firebaseio.com",
     projectId: "setFilterQuery-technique-beeldi",
